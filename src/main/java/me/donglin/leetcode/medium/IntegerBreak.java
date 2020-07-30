@@ -24,7 +24,6 @@ import org.junit.Test;
  */
 public class IntegerBreak {
 
-    private final int[] cache = new int[60];
 
     @Test
     public void case1() {
@@ -47,22 +46,21 @@ public class IntegerBreak {
     }
 
 
+    /**
+     * 拆成尽可能多的3即可，剩余的当成2
+     */
     public int integerBreak(int n) {
         if (n <= 3) {
             return n - 1;
         }
-        if (cache[n] > 0) {
-            return cache[n];
+        int quotient = n / 3;
+        int remainder = n % 3;
+        if (remainder == 0) {
+            return (int) Math.pow(3, quotient);
+        } else if (remainder == 1) {
+            return (int) Math.pow(3, quotient - 1) * 4;
+        } else {
+            return (int) Math.pow(3, quotient) * 2;
         }
-        cache[0] = cache[1] = 1;
-        cache[2] = 2;
-        for (int i = 3, size = cache.length; i < size; i++) {
-            int max = 0;
-            for (int k = 1; k <= i; k++) {
-                max = Math.max(max, k * cache[i - k]);
-            }
-            cache[i] = max;
-        }
-        return cache[n];
     }
 }
