@@ -22,7 +22,7 @@ public class TreeNode {
         this.right = right;
     }
 
-    public static TreeNode fullOrder(Integer[] nums) {
+    public static TreeNode fullOrder(Integer... nums) {
         if (nums == null) {
             return null;
         }
