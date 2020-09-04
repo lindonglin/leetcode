@@ -1,6 +1,8 @@
 package me.donglin.leetcode;
 
+import java.util.ArrayDeque;
 import java.util.Objects;
+import java.util.Queue;
 
 /**
  * @author donglin
@@ -27,6 +29,39 @@ public class TreeNode {
             return null;
         }
         return build(nums, 0);
+    }
+
+
+    public static TreeNode from(Integer... nums) {
+        if (nums == null) {
+            return null;
+        }
+        TreeNode root = new TreeNode(nums[0]);
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        int i = 1;
+        TreeNode node, left, right;
+        while (i < nums.length && !queue.isEmpty()) {
+            if (nums[i] != null) {
+                left = new TreeNode(nums[i]);
+                queue.offer(left);
+            } else {
+                left = null;
+            }
+            i++;
+            if (i < nums.length && nums[i] != null) {
+                right = new TreeNode(nums[i]);
+                queue.offer(right);
+            } else {
+                right = null;
+            }
+            node = queue.poll();
+            assert node != null;
+            node.left = left;
+            node.right = right;
+            i++;
+        }
+        return root;
     }
 
     private static TreeNode build(Integer[] nums, int i) {
