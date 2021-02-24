@@ -27,6 +27,7 @@ public class CommonUtil {
         }
         return true;
     }
+
     public static  boolean isEquals(char[][] chars1, char[][] chars2) {
         if (chars1.length != chars2.length) {
             return false;
@@ -45,6 +46,31 @@ public class CommonUtil {
         }
         for (int i = 0, size = chars1.length; i < size; i++) {
             if (chars1[i] != chars2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static  boolean isEquals(int[] nums1, int[] nums2) {
+        if (nums1.length != nums2.length) {
+            return false;
+        }
+        for (int i = 0, size = nums1.length; i < size; i++) {
+            if (nums1[i] != nums2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public static  boolean isEquals(int[][] nums1, int[][] nums2) {
+        if (nums1.length != nums2.length) {
+            return false;
+        }
+        for (int i = 0, size = nums1.length; i < size; i++) {
+            if (!isEquals(nums1[i], nums2[i])) {
                 return false;
             }
         }
