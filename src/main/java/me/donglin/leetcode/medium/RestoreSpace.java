@@ -31,6 +31,54 @@ import java.util.*;
  */
 public class RestoreSpace {
 
+    public int restoreSpace(String[] dictionary, String sentence) {
+        Trie root = new Trie();
+        for (String word : dictionary) {
+            root.insert(word.toCharArray());
+        }
+        char[] chars = sentence.toCharArray();
+        int n = sentence.length();
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            dp[i] = dp[i - 1] + 1;
+            Trie trie = root;
+            for (int j = i; j >= 1; j--) {
+                int k = chars[j - 1] - 'a';
+                if (trie.next[k] == null) {
+                    break;
+                } else if (trie.next[k].isEnd) {
+                    dp[i] = Math.min(dp[j - 1], dp[i]);
+                }
+                if (dp[i] == 0) {
+                    break;
+                }
+                trie = trie.next[k];
+            }
+        }
+        return dp[n];
+    }
+
+    private static class Trie {
+
+        private final Trie[] next;
+        private boolean isEnd;
+
+        public Trie() {
+            next = new Trie[26];
+        }
+
+        public void insert(char[] chars) {
+            Trie curPos = this;
+            for (int i = chars.length - 1; i >= 0; i--) {
+                int t = chars[i] - 'a';
+                if (curPos.next[t] == null) {
+                    curPos.next[t] = new Trie();
+                }
+                curPos = curPos.next[t];
+            }
+            curPos.isEnd = true;
+        }
+    }
 
     @Test
     public void case1() {
@@ -42,7 +90,7 @@ public class RestoreSpace {
     @Test
     public void case2() {
         String[] dictionary = {"looked", "just"};
-        String sentence = "looked1just";
+        String sentence = "lookedajust";
         Assert.assertEquals(1, restoreSpace(dictionary, sentence));
     }
 
@@ -58,21 +106,6 @@ public class RestoreSpace {
         String[] dictionary = {"sssjjs", "hschjf", "hhh", "fhjchfcfshhfjhs", "sfh", "jsf", "cjschjfscscscsfjcjfcfcfh", "hccccjjfchcffjjshccsjscsc", "chcfjcsshjj", "jh", "h", "f", "s", "jcshs", "jfjssjhsscfc"};
         String sentence = "sssjjssfshscfjjshsjjsjchffffs";
         Assert.assertEquals(7, restoreSpace(dictionary, sentence));
-    }
-
-    private int restoreSpace(String[] dictionary, String sentence) {
-        Set<String> dict = new HashSet<>(Arrays.asList(dictionary));
-        int n = sentence.length();
-        int[] dp = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            dp[i] = dp[i - 1] + 1;
-            for (int idx = 0; idx < i; idx++) {
-                if (dict.contains(sentence.substring(idx, i))) {
-                    dp[i] = Math.min(dp[i], dp[idx]);
-                }
-            }
-        }
-        return dp[n];
     }
 
 }
