@@ -1,5 +1,7 @@
 package me.donglin.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -37,5 +39,16 @@ public class ListNode {
     @Override
     public int hashCode() {
         return Objects.hash(val, next);
+    }
+
+    @Override
+    public String toString() {
+        List<Integer> list = new ArrayList<>();
+        ListNode node = this;
+        while (node != null) {
+            list.add(node.val);
+            node = node.next;
+        }
+        return list.toString();
     }
 }
