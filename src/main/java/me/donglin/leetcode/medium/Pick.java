@@ -10,7 +10,7 @@ import java.util.*;
 public class Pick {
 
     private final Map<Integer, List<Integer>> map;
-
+    private final Random random = new Random();
     public Pick(int[] nums) {
         map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
@@ -23,7 +23,7 @@ public class Pick {
 
     public int pick(int target) {
         List<Integer> list = map.get(target);
-        return list.get(new Random().nextInt(list.size()));
+        return list.get(random.nextInt(list.size()));
     }
 
 }
