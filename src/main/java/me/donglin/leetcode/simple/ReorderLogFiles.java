@@ -38,6 +38,6 @@ package me.donglin.leetcode.simple;
 public class ReorderLogFiles {
 
     public String[] reorderLogFiles(String[] logs) {
-
+        return null;
     }
 }
