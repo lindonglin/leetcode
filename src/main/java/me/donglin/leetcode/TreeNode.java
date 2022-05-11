@@ -33,7 +33,7 @@ public class TreeNode {
 
 
     public static TreeNode from(Integer... nums) {
-        if (nums == null) {
+        if (nums == null || nums.length == 0) {
             return null;
         }
         TreeNode root = new TreeNode(nums[0]);
