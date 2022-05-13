@@ -26,20 +26,43 @@ import org.junit.Test;
 public class OneEditAway {
 
     public boolean oneEditAway(String first, String second) {
-        int l1 = first.length();
-        int l2 = second.length();
-        int dict = l1 - l2;
-        if (dict > 1 || dict < -1) {
-            return false;
+        String s1, s2;
+        if (first.length() < second.length()) {
+            s1 = first;
+            s2 = second;
+        } else {
+            s1 = second;
+            s2 = first;
         }
+        int l1 = s1.length();
+        int l2 = s2.length();
+        int dict = l2 - l1;
         int diff = 0;
         if (dict == 0) {
             for (int i = 0; i < l1; i++) {
-                if (first.charAt(i) != second.charAt(i)) {
+                if (s1.charAt(i) != s2.charAt(i)) {
                     diff++;
                     if (diff > 1) {
                         return false;
                     }
+                }
+            }
+        } else if (dict > 1) {
+            return false;
+        } else {
+            boolean flag = false;
+            int i1 = 0, i2 = 0;
+            while (i1 < l1 && i2 < l2) {
+                if (s1.charAt(i1) != s2.charAt(i2)) {
+                    if (!flag) {
+                        flag = true;
+                        i2++;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    i1++;
+                    i2++;
                 }
             }
         }
@@ -54,6 +77,16 @@ public class OneEditAway {
     @Test
     public void case2() {
         Assert.assertFalse(oneEditAway("pales", "pal"));
+    }
+
+    @Test
+    public void case3() {
+        Assert.assertTrue(oneEditAway("a", "ab"));
+    }
+
+    @Test
+    public void case4() {
+        Assert.assertFalse(oneEditAway("teacher", "teachy"));
     }
 
 }
