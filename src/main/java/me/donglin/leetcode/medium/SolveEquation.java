@@ -34,39 +34,35 @@ public class SolveEquation {
     public String solveEquation(String equation) {
         int a = 0, b = 0, ops = 1;
         char[] chars = equation.toCharArray();
-        int t;
-        for (int i = 0; i < chars.length; i++) {
-            t = 0;
+        int i = 0;
+        while (i < chars.length) {
             char c = chars[i];
             if (c == '+') {
                 ops = 1;
+                i++;
             } else if (c == '-') {
                 ops = -1;
+                i++;
             } else if (c == '=') {
                 ops = 1;
                 a *= -1;
                 b *= -1;
+                i++;
             } else {
+                int t = 0;
                 boolean flag = false;
-                while (c >= '0' && c <= '9') {
+                while (i < chars.length && (c = chars[i]) >= '0' && c <= '9') {
                     t = t * 10 + (c - '0');
                     flag = true;
-                    if (i + 1 < chars.length) {
-                        c = chars[++i];
-                    } else {
-                        break;
-                    }
+                    i++;
                 }
                 t = t > 0 || flag ? t : 1;
-                if (chars[i] == 'x') {
+                if (i < chars.length && chars[i] == 'x') {
                     a += ops * t;
+                    i++;
                 } else {
                     b += ops * t;
-                    if (i + 1 < chars.length) {
-                        i--;
-                    }
                 }
-
             }
         }
         if (a == 0 && b == 0) {
