@@ -38,6 +38,7 @@ package me.donglin.leetcode.simple;
 public class ReorderLogFiles {
 
     public String[] reorderLogFiles(String[] logs) {
-        return null;
+        // TODO: 2022/5/8  
+        return new String[0];
     }
 }

@@ -51,6 +51,7 @@ public class Convert {
         int uprightDist = 2 * numRows - 2;
         // 变换后中间列元素与前一个直立列的元素距离
         int dist = uprightDist - 2;
+
         // 第一行
         int next = 0;
         while (next < chars.length) {
