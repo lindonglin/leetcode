@@ -4,6 +4,7 @@ import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 
 /**
+ * 2427. 公因子的数目
  * @author donglin
  * @since 2023-04-05
  */
