@@ -4,7 +4,7 @@ import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
+
 
 /**
  * 1027. 最长等差数列
@@ -14,24 +14,21 @@ import java.util.Arrays;
 public class LongestArithSeqLength extends BaseTest {
 
     public int longestArithSeqLength(int[] nums) {
-        int minv = Arrays.stream(nums).min().getAsInt();
-        int maxv = Arrays.stream(nums).max().getAsInt();
-        int diff = maxv - minv;
-        int ans = 1;
-        for (int d = -diff; d <= diff; ++d) {
-            int[] f = new int[maxv + 1];
-            Arrays.fill(f, -1);
-            for (int num : nums) {
-                int prev = num - d;
-                if (prev >= minv && prev <= maxv && f[prev] != -1) {
-                    f[num] = Math.max(f[num], f[prev] + 1);
-                    ans = Math.max(ans, f[num]);
-                }
-                f[num] = Math.max(f[num], 1);
+        int n = nums.length;
+        // dp[i][j]表示以nums[i]为皆为j为公差的等差数列的长度
+        int[][] dp = new int[n][1001];
+        int offset = 500; // 消除负数
+        int result = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int diff = nums[j] - nums[i] + offset;
+                dp[j][diff] = dp[i][diff] + 1;
+                result = Math.max(result, dp[j][diff]);
             }
         }
-        return ans;
+        return result + 1;
     }
+
 
     @Override
     public void case1() {
