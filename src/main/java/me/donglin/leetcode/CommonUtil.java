@@ -1,5 +1,6 @@
 package me.donglin.leetcode;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public class CommonUtil {
         if (list1.size() != list2.size()) {
             return false;
         }
-        return list1.containsAll(list2) && list2.containsAll(list1);
+        return new HashSet<>(list1).containsAll(list2) && new HashSet<>(list2).containsAll(list1);
     }
 
 
