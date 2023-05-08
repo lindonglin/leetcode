@@ -44,7 +44,7 @@ public class Mock {
         for (int i = 0; i < 100; i++) {
             summary.next(g);
             if (!summary.allow()) {
-//                System.out.println("not allow " + summary);
+                System.out.println("not allow " + summary);
                 return false;
             }
             if (g == 900) {
