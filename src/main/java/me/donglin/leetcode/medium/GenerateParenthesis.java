@@ -46,7 +46,7 @@ public class GenerateParenthesis extends BaseTest {
         Assert.assertTrue(CommonUtil.isEquals(expect, generateParenthesis(3)));
     }
 
-    @Test
+    @Override
     public void case2() {
         List<String> expect = Collections.singletonList("()");
         Assert.assertTrue(CommonUtil.isEquals(expect, generateParenthesis(1)));
