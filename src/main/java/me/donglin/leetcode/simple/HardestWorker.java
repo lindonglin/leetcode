@@ -33,7 +33,7 @@ public class HardestWorker extends BaseTest {
         Assert.assertEquals(1, hardestWorker(n, logs));
     }
 
-    @Test
+    @Override
     public void case2() {
         int n = 26;
         int[][] logs = {{1, 1}, {3, 7}, {2, 12}, {7, 17}};

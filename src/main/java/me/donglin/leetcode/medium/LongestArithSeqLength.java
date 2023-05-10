@@ -36,7 +36,7 @@ public class LongestArithSeqLength extends BaseTest {
         Assert.assertEquals(4, longestArithSeqLength(nums));
     }
 
-    @Test
+    @Override
     public void case2() {
         int[] nums = {9, 4, 7, 2, 10};
         Assert.assertEquals(3, longestArithSeqLength(nums));
