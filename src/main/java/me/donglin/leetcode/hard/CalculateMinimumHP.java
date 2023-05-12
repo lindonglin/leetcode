@@ -1,5 +1,6 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,15 +29,15 @@ import org.junit.Test;
  * @author donglin
  * @since 2020-07-12
  */
-public class CalculateMinimumHP {
+public class CalculateMinimumHP extends BaseTest {
 
-    @Test
+    @Override
     public void case1() {
         int[][] dungeon = {{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}};
         Assert.assertEquals(7, calculateMinimumHP(dungeon));
     }
 
-    @Test
+    @Override
     public void case2() {
         int[][] dungeon = {{0}};
         Assert.assertEquals(1, calculateMinimumHP(dungeon));

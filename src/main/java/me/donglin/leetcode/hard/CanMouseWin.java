@@ -1,5 +1,6 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -45,7 +46,7 @@ import java.util.Queue;
  * @author donglin
  * @since 2022-05-10
  */
-public class CanMouseWin {
+public class CanMouseWin extends BaseTest {
 
     private static final int MOUSE_TURN = 0, CAT_TURN = 1;
     private static final int UNKNOWN = 0, MOUSE_WIN = 1, CAT_WIN = 2;
@@ -225,14 +226,14 @@ public class CanMouseWin {
         return row * cols + col;
     }
 
-    @Test
+    @Override
     public void case1() {
         String[] grid = {"####F", "#C...", "M...."};
         int catJump = 1, mouseJump = 2;
         Assert.assertTrue(canMouseWin(grid, catJump, mouseJump));
     }
 
-    @Test
+    @Override
     public void case2() {
         String[] grid = {"M.C...F"};
         int catJump = 1, mouseJump = 4;
