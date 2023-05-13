@@ -12,4 +12,6 @@ public abstract class BaseTest {
     public abstract void case1();
     @Test
     public void case2() {}
+    @Test
+    public void case3() {}
 }
