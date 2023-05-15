@@ -1,5 +1,6 @@
 package me.donglin.leetcode.medium;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ import org.junit.Test;
  * @author donglin
  * @since 2021-02-23
  */
-public class MaxSatisfied {
+public class MaxSatisfied extends BaseTest {
 
     public int maxSatisfied(int[] customers, int[] grumpy, int X) {
         int satisfied = 0;
@@ -53,7 +54,7 @@ public class MaxSatisfied {
         return satisfied + maxAddSatisfied;
     }
 
-    @Test
+    @Override
     public void case1() {
         int[] customers = {1, 0, 1, 2, 1, 1, 7, 5};
         int[] grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
@@ -61,7 +62,7 @@ public class MaxSatisfied {
         Assert.assertEquals(16, maxSatisfied(customers, grumpy, x));
     }
 
-    @Test
+    @Override
     public void case2() {
         int[] customers = {1, 0, 1, 2, 1, 1, 7, 5};
         int[] grumpy = {0, 1, 0, 1, 0, 1, 1, 1};
@@ -70,7 +71,7 @@ public class MaxSatisfied {
     }
 
 
-    @Test
+    @Override
     public void case3() {
         int[] customers = {1, 0, 1, 2, 1, 1, 7, 5};
         int[] grumpy = {0, 1, 0, 1, 0, 0, 0, 0};
