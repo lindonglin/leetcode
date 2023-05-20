@@ -1,5 +1,6 @@
 package me.donglin.leetcode.medium;
 
+import me.donglin.leetcode.BaseTest;
 import me.donglin.leetcode.CommonUtil;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,15 +29,15 @@ import java.util.List;
  * @author donglin
  * @since 2020-09-11
  */
-public class CombinationSum3 {
+public class CombinationSum3 extends BaseTest {
 
-    @Test
+    @Override
     public void case1() {
         List<List<Integer>> expected = Collections.singletonList(Arrays.asList(1, 2, 4));
         Assert.assertTrue(CommonUtil.isEquals(expected, combinationSum3(3, 7)));
     }
 
-    @Test
+    @Override
     public void case2() {
         List<List<Integer>> expected = Arrays.asList(Arrays.asList(1, 2, 6), Arrays.asList(1, 3, 5), Arrays.asList(2, 3, 4));
         Assert.assertTrue(CommonUtil.isEquals(expected, combinationSum3(3, 9)));
