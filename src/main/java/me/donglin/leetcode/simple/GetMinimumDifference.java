@@ -1,5 +1,6 @@
 package me.donglin.leetcode.simple;
 
+import me.donglin.leetcode.BaseTest;
 import me.donglin.leetcode.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,7 +33,7 @@ import org.junit.Test;
  * @author donglin
  * @since 2020-10-12
  */
-public class GetMinimumDifference {
+public class GetMinimumDifference extends BaseTest {
 
     public int getMinimumDifference(TreeNode root) {
         int min = root.left != null ? root.val - root.left.val : root.right.val - root.val;
@@ -51,7 +52,7 @@ public class GetMinimumDifference {
         inOrderTraversal(node.right, arr);
     }
 
-    @Test
+    @Override
     public void case1() {
         TreeNode root = TreeNode.from(1, null, 3, 2);
         int expected = 1;
