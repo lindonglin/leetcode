@@ -1,5 +1,6 @@
 package me.donglin.leetcode.simple;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +37,7 @@ import org.junit.Test;
  * @author donglin
  * @since 2022-04-24
  */
-public class BinaryGap {
+public class BinaryGap extends BaseTest {
 
     public int binaryGap(int n) {
         int max = 0;
@@ -56,17 +57,17 @@ public class BinaryGap {
         return max;
     }
 
-    @Test
+    @Override
     public void case1() {
         Assert.assertEquals(2, binaryGap(22));
     }
 
-    @Test
+    @Override
     public void case2() {
         Assert.assertEquals(0, binaryGap(8));
     }
 
-    @Test
+    @Override
     public void case3() {
         Assert.assertEquals(2, binaryGap(5));
     }
