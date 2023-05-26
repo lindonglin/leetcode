@@ -1,5 +1,6 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,18 +35,18 @@ import org.junit.Test;
  * @author donglin
  * @since 2022-06-10
  */
-public class CountPalindromicSubsequences {
+public class CountPalindromicSubsequences extends BaseTest {
 
     public int countPalindromicSubsequences(String s) {
         return 0;
     }
 
-    @Test
+    @Override
     public void case1() {
         Assert.assertEquals(6, countPalindromicSubsequences("bccb"));
     }
 
-    @Test
+    @Override
     public void case2() {
         Assert.assertEquals(104860361, countPalindromicSubsequences("abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba"));
     }
