@@ -1,8 +1,8 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import me.donglin.leetcode.CommonUtil;
 import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ import java.util.*;
  * @author donglin
  * @since 2022-05-26
  */
-public class FallingSquares {
+public class FallingSquares extends BaseTest {
 
     public List<Integer> fallingSquares1(int[][] positions) {
         int maxX = 0;
@@ -86,14 +86,14 @@ public class FallingSquares {
         return heights;
     }
 
-    @Test
+    @Override
     public void case1() {
         List<Integer> expected = Arrays.asList(2, 5, 5);
         int[][] positions = {{1, 2}, {2, 3}, {6, 1}};
         Assert.assertTrue(CommonUtil.isEquals(expected, fallingSquares(positions)));
     }
 
-    @Test
+    @Override
     public void case2() {
         List<Integer> expected = Arrays.asList(100, 100);
         int[][] positions = {{100, 100}, {200, 100}};
