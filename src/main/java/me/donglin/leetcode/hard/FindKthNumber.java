@@ -1,5 +1,6 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,7 +35,7 @@ import org.junit.Test;
  * @author donglin
  * @since 2022-05-18
  */
-public class FindKthNumber {
+public class FindKthNumber extends BaseTest {
 
     public int findKthNumber(int m, int n, int k) {
         int left = 1, right = m * n;
@@ -53,17 +54,17 @@ public class FindKthNumber {
         return left;
     }
 
-    @Test
+    @Override
     public void case1() {
         Assert.assertEquals(3, findKthNumber(3, 3, 5));
     }
 
-    @Test
+    @Override
     public void case2() {
         Assert.assertEquals(6, findKthNumber(2, 3, 6));
     }
 
-    @Test
+    @Override
     public void case3() {
         Assert.assertEquals(6, findKthNumber(1, 9, 6));
     }
