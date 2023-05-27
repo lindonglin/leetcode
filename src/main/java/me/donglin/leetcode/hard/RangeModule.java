@@ -1,7 +1,7 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -43,7 +43,7 @@ import java.util.TreeMap;
  * @author donglin
  * @since 2022-06-20
  */
-public class RangeModule {
+public class RangeModule extends BaseTest {
 
     private final TreeMap<Integer, Integer> intervals = new TreeMap<>();
     public RangeModule() {}
@@ -106,7 +106,7 @@ public class RangeModule {
         }
     }
 
-    @Test
+    @Override
     public void case1() {
         RangeModule rangeModule = new RangeModule();
         rangeModule.addRange(10,20);
