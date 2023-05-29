@@ -1,8 +1,8 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import me.donglin.leetcode.CommonUtil;
 import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import java.util.*;
  * @version 1.0
  * @since 2021/02/26
  */
-public class FindNumOfValidWords {
+public class FindNumOfValidWords extends BaseTest {
 
     public List<Integer> findNumOfValidWords(String[] words, String[] puzzles) {
         List<Integer> result = new ArrayList<>(puzzles.length);
@@ -78,7 +78,7 @@ public class FindNumOfValidWords {
     }
 
 
-    @Test
+    @Override
     public void case1() {
         String[] words = {"aaaa", "asas", "able", "ability", "actt", "actor", "access"};
         String[] puzzles = {"aboveyz", "abrodyz", "abslute", "absoryz", "actresz", "gaswxyz"};
