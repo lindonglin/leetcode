@@ -1,5 +1,6 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,12 +24,12 @@ import org.junit.Test;
  * 解释: 15 = 8 + 7 = 4 + 5 + 6 = 1 + 2 + 3 + 4 + 5
  *
  * 提示:
- * 1 <= n <= 10^9​​​​​​​
+ * 1 <= n <= 10^9
  *
  * @author donglin
  * @since 2022-06-03
  */
-public class ConsecutiveNumbersSum {
+public class ConsecutiveNumbersSum extends BaseTest {
 
     public int consecutiveNumbersSum(int n) {
         int ans = 0;
@@ -81,19 +82,19 @@ public class ConsecutiveNumbersSum {
         return result;
     }
 
-    @Test
+    @Override
     public void case1() {
         Assert.assertEquals(2, consecutiveNumbersSum(5));
         Assert.assertEquals(2, consecutiveNumbersSumByMath(5));
     }
 
-    @Test
+    @Override
     public void case2() {
         Assert.assertEquals(3, consecutiveNumbersSum(9));
         Assert.assertEquals(3, consecutiveNumbersSumByMath(9));
     }
 
-    @Test
+    @Override
     public void case3() {
         Assert.assertEquals(4, consecutiveNumbersSum(15));
         Assert.assertEquals(4, consecutiveNumbersSumByMath(15));
