@@ -1,7 +1,7 @@
 package me.donglin.leetcode.hard;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
-import org.junit.Test;
 
 /**
  * 1014. 最佳观光组合
@@ -22,15 +22,7 @@ import org.junit.Test;
  * @author donglin
  * @since 2020-06-17
  */
-public class MaxScoreSightseeingPair {
-
-    @Test
-    public void case1() {
-        Assert.assertEquals(11, maxScoreSightseeingPair(new int[]{8,1,5,2,6}));
-        Assert.assertEquals(3, maxScoreSightseeingPair(new int[]{2, 2}));
-        Assert.assertEquals(10, maxScoreSightseeingPair(new int[]{3, 1, 1, 1, 1, 10}));
-        Assert.assertEquals(11, maxScoreSightseeingPair(new int[]{6, 1, 1, 1, 1, 10}));
-    }
+public class MaxScoreSightseeingPair extends BaseTest {
 
     private int maxScoreSightseeingPair(int[] A) {
         int maxScore = 0;
@@ -41,6 +33,15 @@ public class MaxScoreSightseeingPair {
             maxValue = Math.max(maxValue , A[i]) - 1;
         }
         return maxScore;
+    }
+
+
+    @Override
+    public void case1() {
+        Assert.assertEquals(11, maxScoreSightseeingPair(new int[]{8,1,5,2,6}));
+        Assert.assertEquals(3, maxScoreSightseeingPair(new int[]{2, 2}));
+        Assert.assertEquals(10, maxScoreSightseeingPair(new int[]{3, 1, 1, 1, 1, 10}));
+        Assert.assertEquals(11, maxScoreSightseeingPair(new int[]{6, 1, 1, 1, 1, 10}));
     }
 
 }
