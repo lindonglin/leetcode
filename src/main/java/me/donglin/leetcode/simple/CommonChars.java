@@ -1,7 +1,7 @@
 package me.donglin.leetcode.simple;
 
+import me.donglin.leetcode.BaseTest;
 import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +31,7 @@ import java.util.List;
  * @author donglin
  * @since 2020-10-14
  */
-public class CommonChars {
+public class CommonChars extends BaseTest {
 
     public List<String> commonChars(String[] A) {
         int[][] statistics = new int[26][A.length];
@@ -53,14 +53,14 @@ public class CommonChars {
         return result;
     }
 
-    @Test
+    @Override
     public void case1() {
         String[] a = {"bella", "label", "roller"};
         List<String> expected = Arrays.asList("e", "l", "l");
         Assert.assertEquals(expected, commonChars(a));
     }
 
-    @Test
+    @Override
     public void case2() {
         String[] a = {"cool", "lock", "cook"};
         List<String> expected = Arrays.asList("c", "o");
